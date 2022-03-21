@@ -14,19 +14,15 @@ export default function SelectionDetails(props)  {
   return (
     <Card elevation={6}>
       <CardContent>
-        <Typography gutterBottom variant="h5">{props.park.name}</Typography>
+        <Typography gutterBottom variant="h5">{props.event.name}</Typography>
         <Box display='flex' justifyContent='space-between'>
-          <Typography variant='subtitle1'>Neighborhood</Typography>
-          <Typography gutterBottom variant='subtitle1'>{props.park.neighbourhood}</Typography>
+          <Typography variant='subtitle1'>Type</Typography>
+          <Typography gutterBottom variant='subtitle1'>{props.event.type}</Typography>
         </Box>
-        <Typography gutterBottom variant='subtitle2' color='textSecondary' className={classes.subtitle}>
-          <LocationOnIcon />{props.park.address}
-        </Typography>
-        <CardActions>
-          <Button size='small' color='primary' onClick={() => window.open(props.park.neighbourhoodurl, '_blank')}>
-            Park Website
-          </Button>
-        </CardActions>
+        <Box display='flex' justifyContent='space-between'>
+          <Typography variant='subtitle1'>Info</Typography>
+          <Typography gutterBottom variant='subtitle1'>{props.event.info}</Typography>
+        </Box>
       </CardContent>
     </Card>
   )
