@@ -34,8 +34,8 @@ export default function List(props) {
           <Select value={props.sport} onChange={(e) => props.setSport(e.target.value)}>
             <MenuItem value='any'>any</MenuItem>
             <MenuItem value='basketball'>basketball</MenuItem>
-            <MenuItem value='soccer'>soccer</MenuItem>
-            <MenuItem value='baseball'>baseball</MenuItem>
+            <MenuItem value='running'>soccer</MenuItem>
+            <MenuItem value='spikeball'>baseball</MenuItem>
             <MenuItem value='volleyball'>volleyball</MenuItem>
           </Select>
         </FormControl>

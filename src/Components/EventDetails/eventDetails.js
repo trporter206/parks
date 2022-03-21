@@ -7,7 +7,6 @@ import useStyles from './styles.js'
 export default function SelectionDetails(props)  {
   const classes = useStyles()
   if (props.selected) {
-    console.log(props.refProp)
     props.refProp?.current?.scrollIntoView({behavior: 'smooth', block: 'start'})
   }
 
