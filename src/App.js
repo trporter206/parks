@@ -115,7 +115,7 @@ export default function App() {
   return (
     <div>
       <CssBaseline />
-      <Header />
+      <Header setCoordinates={setCoordinates}/>
       <Grid container style={{width: '100%'}}>
         <Grid item xs={12} md={4}>
           <List parks={filteredParks.length ? filteredParks : parks}
