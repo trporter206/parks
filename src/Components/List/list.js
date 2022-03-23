@@ -1,7 +1,6 @@
 import React, {useState, useEffect, createRef} from 'react'
 import { CircularProgress, Grid, Typography, InputLabel, MenuItem, FormControl, Select } from '@material-ui/core'
-import SelectionDetails from '../SelectionDetails/selectionDetails.js'
-import EventDetails from '../EventDetails/eventDetails.js'
+import SelectionDetailsContainer from '../../Containers/selectioncontainer.js'
 
 import useStyles from './styles.js'
 
@@ -25,8 +24,9 @@ export default function List(props) {
         <FormControl className={classes.formControl}>
           <InputLabel>Type</InputLabel>
           <Select value={props.type} onChange={(e) => props.setType(e.target.value)}>
-            <MenuItem value='parks'>parks</MenuItem>
-            <MenuItem value='events'>events</MenuItem>
+            <MenuItem value='parks'>Parks</MenuItem>
+            <MenuItem value='events'>Events</MenuItem>
+            <MenuItem value='basketball'>Basketball Courts</MenuItem>
           </Select>
         </FormControl>
         <FormControl className={classes.formControl}>
@@ -39,27 +39,16 @@ export default function List(props) {
             <MenuItem value='volleyball'>volleyball</MenuItem>
           </Select>
         </FormControl>
-        {props.type === 'parks' ? (
-          <Grid container spacing={3} className={classes.list}>
-            {props.parks?.map((park, i) => (
-              <Grid ref={elRefs[i]} item key={i} xs={12}>
-                <SelectionDetails park={park}
-                                  selected={Number(props.childClicked) === i}
-                                  refProp={elRefs[i]}/>
-              </Grid>
-            ))}
-          </Grid>
-        ) : (
-          <Grid container spacing={3} className={classes.list}>
-            {props.parks?.map((park, i) => (
-              <Grid ref={elRefs[i]} item key={i} xs={12}>
-                <EventDetails event={park}
-                              selected={Number(props.childClicked) === i}
-                              refProp={elRefs[i]}/>
-              </Grid>
-            ))}
-          </Grid>
-        )}
+        <Grid container spacing={3} className={classes.list}>
+          {props.parks?.map((park, i) => (
+            <Grid ref={elRefs[i]} item key={i} xs={12}>
+              <SelectionDetailsContainer park={park}
+                                         type={props.type}
+                                         selected={Number(props.childClicked) === i}
+                                         refProp={elRefs[i]}/>
+            </Grid>
+          ))}
+        </Grid>
         </>
       )}
     </div>
