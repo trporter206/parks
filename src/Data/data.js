@@ -15,6 +15,9 @@ export const parksData = parks.map((park) => {
     street: park.fields.streetname,
     streetNumber: park.fields.streetnumber,
     washrooms: park.fields.washrooms,
+    facilities: park.fields.facilities,
+    advisories: park.fields.advisories,
+    features: park.fields.features,
     address: String(park.fields.streetnumber).concat(" ", String(park.fields.streetname)),
     neighbourhoodurl: String(park.fields.neighbourhoodurl)
   }

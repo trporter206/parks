@@ -1,7 +1,7 @@
 import React from 'react'
 import BasketballDetails from '../Components/Basketball/basketball'
-import EventDetails from '../Components/EventDetails/eventDetails'
-import SelectionDetails from '../Components/SelectionDetails/selectionDetails'
+import EventDetails from '../Components/Event/event'
+import ParkDetails from '../Components/Park/park'
 
 export default function SelectionDetailsContainer(props)  {
   if (props.selected) {
@@ -9,7 +9,7 @@ export default function SelectionDetailsContainer(props)  {
   }
 
   if (props.type === 'parks') {
-      return <SelectionDetails park={props.park} />
+      return <ParkDetails park={props.park} />
   } else if (props.type === 'events') {
       return <EventDetails event={props.park} />
   } else {
