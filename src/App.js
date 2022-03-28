@@ -3,16 +3,14 @@ import Header from './Components/Header/header'
 import List from './Components/List/list'
 import Map from './Components/Map/map'
 import {CssBaseline, Grid} from '@material-ui/core'
-import {parksData, testEvents, basketballCourts} from './Data/data';
+import {parksData, testEvents, communityGardensData, publicArtData} from './Data/data';
 
 export default function App() {
-  const [parks, setParks] = useState(parksData)
-  const [filteredParks, setFilteredParks] = useState([])
+  const [data, setData] = useState(parksData)
   const [coordinates, setCoordinates] = useState({})
   const [bounds, setBounds] = useState({})
   const [childClicked, setChildClicked] = useState(null)
   const [type, setType] = useState('parks')
-  const [sport, setSport] = useState('any')
   const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
@@ -22,26 +20,16 @@ export default function App() {
   }, [])
 
   useEffect(() => {
-    setIsLoading(true)
-    if (type === 'events') {
-      setParks(testEvents)
-      setFilteredParks([])
-    } else if (type === 'parks') {
-      setParks(parksData)
-      setFilteredParks([])
-    } else {
-      setParks(basketballCourts)
-      setFilteredParks([])
+    if (type === 'parks') {
+      setData(parksData)
+    } else if (type === 'events') {
+      setData(testEvents)
+    } else if (type === 'communityGardens'){
+      setData(communityGardensData)
+    } else if (type === 'publicArt'){
+      setData(publicArtData)
     }
-    setIsLoading(false)
   }, [type])
-
-  useEffect(() => {
-    const filteredParks = parks.filter((park) => park.type?.includes(sport))
-    setFilteredParks(filteredParks)
-  }, [sport])
-
-  // create useeffect to only show parks within map bounds
 
   return (
     <div>
@@ -49,19 +37,17 @@ export default function App() {
       <Header setCoordinates={setCoordinates}/>
       <Grid container style={{width: '100%'}}>
         <Grid item xs={12} md={4}>
-          <List parks={filteredParks.length ? filteredParks : parks}
+          <List locations={data}
                 childClicked={childClicked}
                 type={type}
                 setType={setType}
-                sport={sport}
-                setSport={setSport}
                 isLoading={isLoading}/>
         </Grid>
         <Grid item xs={12} md={8}>
           <Map setCoordinates={setCoordinates}
                setBounds={setBounds}
                coordinates={coordinates}
-               parks={filteredParks.length ? filteredParks : parks}
+               locations={data}
                setChildClicked={setChildClicked}/>
         </Grid>
       </Grid>

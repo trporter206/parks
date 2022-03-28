@@ -1,6 +1,5 @@
 import React from 'react'
 import {Box, Typography, Button, Card, CardMedia, CardContent, CardActions, Chip} from '@material-ui/core'
-import {LocationOn, SportsSoccer, ParkIcon} from '@material-ui/icons'
 import LanguageIcon from '@material-ui/icons/Language';
 import useStyles from './styles.js'
 
@@ -9,7 +8,6 @@ export default function ParkDetails(props)  {
   if (props.selected) {
     props.refProp?.current?.scrollIntoView({behavior: 'smooth', block: 'start'})
   }
-
   return (
     <Card elevation={6}>
       <CardMedia component='img'
@@ -41,9 +39,9 @@ export default function ParkDetails(props)  {
           <Typography variant='subtitle1'>Advisories</Typography>
           <Typography gutterBottom variant='subtitle1'>{props.park.advisories}</Typography>
         </Box>
-        {props.park.features.map((park, i) => (
-            <Chip label={props.park.features[i]} size='small' variant="outlined" />
-          ))}
+        {/* {props.park.features.map((park, i) => (
+            <Chip label={park.features[i]} size='small' variant="outlined" />
+          ))} */}
         <CardActions>
           <LanguageIcon onClick={() => window.open(props.park.neighbourhoodurl, '_blank')}/>
         </CardActions>

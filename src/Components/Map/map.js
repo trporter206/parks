@@ -9,7 +9,6 @@ export default function Map(props) {
   const isDesktop = useMediaQuery('(min-width: 600px)')
   const center = {lat: 49.246292, lng: -123.116226}
   const zoom = 11
-
   return (
     <div className={classes.mapContainer}>
       <GoogleMapReact
@@ -24,10 +23,10 @@ export default function Map(props) {
         }}
         onChildClick={(child) => props.setChildClicked(child)}
         >
-        {props.parks?.map((park, i) => (
+        {props.locations?.map((location, i) => (
           <div className={classes.markerContainer}
-               lat={Number(park.coordinates[0])}
-               lng={Number(park.coordinates[1])}
+               lat={Number(location.coordinates[0])}
+               lng={Number(location.coordinates[1])}
                key={i}>
                {
                  !isDesktop ? (
@@ -35,7 +34,7 @@ export default function Map(props) {
                  ) : (
                    <Paper elevation={3} className={classes.paper}>
                     <Typography className={classes.typography} variant='subtitle2' gutterBottom>
-                      {park.name}
+                      {location.name || location.type}
                     </Typography>
                    </Paper>
                  )

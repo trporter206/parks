@@ -1,7 +1,8 @@
 import React from 'react'
-import BasketballDetails from '../Components/Basketball/basketball'
-import EventDetails from '../Components/Event/event'
-import ParkDetails from '../Components/Park/park'
+import EventDetails from '../Components/LocationComponents/Event/event'
+import ParkDetails from '../Components/LocationComponents/Park/park'
+import ArtDetails from '../Components/LocationComponents/Art/art'
+import GardenDetails from '../Components/LocationComponents/Garden/garden'
 
 export default function SelectionDetailsContainer(props)  {
   if (props.selected) {
@@ -9,10 +10,12 @@ export default function SelectionDetailsContainer(props)  {
   }
 
   if (props.type === 'parks') {
-      return <ParkDetails park={props.park} />
+      return <ParkDetails park={props.location} />
   } else if (props.type === 'events') {
-      return <EventDetails event={props.park} />
+      return <EventDetails event={props.location} />
+  } else if (props.type === 'publicArt'){
+    return <ArtDetails art={props.location} />
   } else {
-      return <BasketballDetails court={props.park} />
+    return <GardenDetails garden={props.location} />
   }
 }
