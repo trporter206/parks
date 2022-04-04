@@ -2,8 +2,10 @@ import React, {useState, useEffect} from 'react';
 import Header from './Components/Header/header'
 import List from './Components/List/list'
 import Map from './Components/Map/map'
-import {CssBaseline, Grid} from '@material-ui/core'
+import FilterContainer from './Containers/FilterContainer';
+import {CssBaseline, Grid, InputLabel, MenuItem, FormControl, Select} from '@material-ui/core'
 import {parksData, testEvents, communityGardensData, publicArtData} from './Data/data';
+import { Filter } from '@material-ui/icons';
 
 export default function App() {
   const [type, setType] = useState('parks')
@@ -12,7 +14,7 @@ export default function App() {
   const [coordinates, setCoordinates] = useState({})
   const [childClicked, setChildClicked] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
-  const [neighbourhood, setNeighbourhood] = useState('All')
+  const [searchObject, setSearchObject] = useState({})
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(({coords: {latitude, longitude} }) => {
@@ -25,35 +27,40 @@ export default function App() {
     if (type === 'parks') {
       setFilteredData(parksData)
       setData(parksData)
-      setNeighbourhood('All')
     } else if (type === 'events') {
       setFilteredData(testEvents)
       setData(testEvents)
-      setNeighbourhood('All')
     } else if (type === 'communityGardens') {
       setFilteredData(communityGardensData)
       setData(communityGardensData)
-      setNeighbourhood('All')
     } else if (type === 'publicArt') {
       setFilteredData(publicArtData)
       setData(publicArtData)
-      setNeighbourhood('All')
     }
   }, [type])
 
   useEffect(() => {
-    if(neighbourhood === 'All'){
-      setFilteredData(data)
+    console.log(searchObject)
+    if (Object.keys(searchObject).length === 0){
       return 
     }
-    let newData = []
-    for(let i = 0; i<data.length; i++){
-      if(data[i].neighbourhood === neighbourhood){
-        newData.push(data[i])
+    const newData = []
+    const matchParams = Object.keys(searchObject)
+    const matches = 0
+    for (let i=0; i<filteredData.length; i++){
+      for (let j=0; i<matchParams.length; i++){
+        if(filteredData[i][matchParams[j]] != matchParams[j]) {
+          break
+        } else {
+          matches++
+          if (matches === matchParams.length){
+            newData.push(filteredData[i])
+          }
+        }
       }
     }
     setFilteredData(newData)
-  },[neighbourhood])
+  },[searchObject])
 
   return (
     <div>
@@ -61,13 +68,23 @@ export default function App() {
       <Header setCoordinates={setCoordinates}/>
       <Grid container style={{width: '100%'}}>
         <Grid item xs={12} md={4}>
+          <FormControl>
+            <InputLabel>Type</InputLabel>
+            <Select value={type} onChange={(e) => setType(e.target.value)}>
+              <MenuItem value='parks'>Parks</MenuItem>
+              <MenuItem value='events'>Events</MenuItem>
+              <MenuItem value='communityGardens'>Community Gardens</MenuItem>
+              <MenuItem value='publicArt'>Public Art</MenuItem>
+            </Select>
+          </FormControl>
+          <FilterContainer type={type} 
+                           searchObject={searchObject}
+                           setSearchObject={setSearchObject}/>
           <List locations={filteredData}
                 childClicked={childClicked}
-                type={type}
                 setType={setType}
                 isLoading={isLoading}
-                neighbourhood={neighbourhood}
-                setNeighbourhood={setNeighbourhood}/>
+                type={type}/>
         </Grid>
         <Grid item xs={12} md={8}>
           <Map setCoordinates={setCoordinates}
