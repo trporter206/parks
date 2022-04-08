@@ -18,6 +18,7 @@ export default function App() {
   const [searchObject, setSearchObject] = useState({})
 
   const dispatch = useDispatch()
+  const locations = useSelector(state => state.list.listContents)
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(({coords: {latitude, longitude} }) => {
@@ -90,7 +91,7 @@ export default function App() {
         <Grid item xs={12} md={8}>
           <Map setCoordinates={setCoordinates}
                coordinates={coordinates}
-               locations={filteredData}
+               locations={locations}
                setChildClicked={setChildClicked}/>
         </Grid>
       </Grid>
