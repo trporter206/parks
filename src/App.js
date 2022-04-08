@@ -83,9 +83,7 @@ export default function App() {
           <FilterContainer type={type} 
                            searchObject={searchObject}
                            setSearchObject={setSearchObject}/>
-          <List locations={filteredData}
-                childClicked={childClicked}
-                setType={setType}
+          <List childClicked={childClicked}
                 isLoading={isLoading}
                 type={type}/>
         </Grid>

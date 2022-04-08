@@ -12,9 +12,9 @@ export default function List(props) {
   const list = useSelector(state => state.list.listContents)
   
   useEffect(() => {
-    const refs = Array(props.locations?.length).fill().map((_, i) => elRefs[i] || createRef())
+    const refs = Array(list?.length).fill().map((_, i) => elRefs[i] || createRef())
     setElRefs(refs)
-  },[props.locations])
+  },[list])
 
   return (
     <div className={classes.container}>
