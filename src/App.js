@@ -4,16 +4,13 @@ import List from './Components/List/list'
 import Map from './Components/Map/map'
 import FilterContainer from './Containers/FilterContainer';
 import {CssBaseline, Grid, InputLabel, MenuItem, FormControl, Select} from '@material-ui/core'
-import {parksData, testEvents, communityGardensData, publicArtData} from './Data/data';
 import { useSelector, useDispatch } from 'react-redux';
 import { changeType } from './Components/List/listSlice';
 
 export default function App() {
-  const [filteredData, setFilteredData] = useState([])
   const [coordinates, setCoordinates] = useState({})
   const [childClicked, setChildClicked] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
-  const [searchObject, setSearchObject] = useState({})
 
   const dispatch = useDispatch()
   const locations = useSelector(state => state.list.listContents)
@@ -23,30 +20,7 @@ export default function App() {
     navigator.geolocation.getCurrentPosition(({coords: {latitude, longitude} }) => {
       setCoordinates({lat: latitude, lng: longitude})
     })
-    setFilteredData(parksData)
   }, [])
-
-  useEffect(() => {
-    if (Object.keys(searchObject).length === 0){
-      return 
-    }
-    const newData = []
-    const matchParams = Object.keys(searchObject)
-    const matches = 0
-    for (let i=0; i<filteredData.length; i++){
-      for (let j=0; i<matchParams.length; i++){
-        if(filteredData[i][matchParams[j]] != matchParams[j]) {
-          break
-        } else {
-          matches++
-          if (matches === matchParams.length){
-            newData.push(filteredData[i])
-          }
-        }
-      }
-    }
-    setFilteredData(newData)
-  },[searchObject])
 
   return (
     <div>
@@ -63,12 +37,9 @@ export default function App() {
               <MenuItem value='publicArt'>Public Art</MenuItem>
             </Select>
           </FormControl>
-          <FilterContainer type={selectType} 
-                           searchObject={searchObject}
-                           setSearchObject={setSearchObject}/>
+          <FilterContainer />
           <List childClicked={childClicked}
-                isLoading={isLoading}
-                type={selectType}/>
+                isLoading={isLoading}/>
         </Grid>
         <Grid item xs={12} md={8}>
           <Map setCoordinates={setCoordinates}

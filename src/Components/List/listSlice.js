@@ -23,7 +23,7 @@ export const listSlice = createSlice({
         },
         filterList: (state, action) => {
             console.log(action)
-            state.listFilter[action.payload.field] = action.payload.term
+            state.listFilter[action.payload[0]] = action.payload[1]
         },
     }
   });
