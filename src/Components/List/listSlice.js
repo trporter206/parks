@@ -5,7 +5,7 @@ export const listSlice = createSlice({
     name: "list",
     initialState: {
         type: '',
-        listContents: [],
+        listContents: parksData,
         listFilter: {},
     },
     reducers: {
@@ -24,8 +24,6 @@ export const listSlice = createSlice({
         filterList: {},
     }
   });
-
-  export const selectList = (state) => state.listContents
 
   export const {
     changeType,
