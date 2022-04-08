@@ -5,7 +5,8 @@ import Map from './Components/Map/map'
 import FilterContainer from './Containers/FilterContainer';
 import {CssBaseline, Grid, InputLabel, MenuItem, FormControl, Select} from '@material-ui/core'
 import {parksData, testEvents, communityGardensData, publicArtData} from './Data/data';
-import { Filter } from '@material-ui/icons';
+import { useSelector, useDispatch } from 'react-redux';
+import { changeType } from './Components/List/listSlice';
 
 export default function App() {
   const [type, setType] = useState('parks')
@@ -15,6 +16,8 @@ export default function App() {
   const [childClicked, setChildClicked] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
   const [searchObject, setSearchObject] = useState({})
+
+  const dispatch = useDispatch()
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(({coords: {latitude, longitude} }) => {
@@ -70,7 +73,7 @@ export default function App() {
         <Grid item xs={12} md={4}>
           <FormControl>
             <InputLabel>Type</InputLabel>
-            <Select value={type} onChange={(e) => setType(e.target.value)}>
+            <Select value={type} onChange={(e) => dispatch(changeType(e.target.value))}>
               <MenuItem value='parks'>Parks</MenuItem>
               <MenuItem value='events'>Events</MenuItem>
               <MenuItem value='communityGardens'>Community Gardens</MenuItem>
