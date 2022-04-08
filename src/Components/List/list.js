@@ -1,10 +1,8 @@
 import React, {useState, useEffect, createRef} from 'react'
 import { CircularProgress, Grid, Typography} from '@material-ui/core'
 import SelectionDetailsContainer from '../../Containers/selectioncontainer.js'
-import FilterContainer from '../../Containers/FilterContainer.js'
 import useStyles from './styles.js'
 import { useSelector } from 'react-redux'
-import { selectList } from './listSlice.js'
 
 export default function List(props) {
   const classes = useStyles()

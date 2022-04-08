@@ -21,7 +21,10 @@ export const listSlice = createSlice({
                 state.listContents = publicArtData
             }
         },
-        filterList: {},
+        filterList: (state, action) => {
+            console.log(action)
+            state.listFilter[action.payload.field] = action.payload.term
+        },
     }
   });
 
