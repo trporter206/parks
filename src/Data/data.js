@@ -1,9 +1,12 @@
 import parks from './parks.json'
 import communityGardens from './community-gardens-and-food-trees.json'
 import publicArt from './public-art.json'
+import { nanoid } from '@reduxjs/toolkit'
 
-export const parksData = parks.map((park) => {
-  return {
+export const parksData = []
+parks.forEach((park) => {
+  const local = {
+    id: nanoid(),
     name: park.fields.name,
     currentEvents: [],
     photos: '',
@@ -22,6 +25,7 @@ export const parksData = parks.map((park) => {
     address: String(park.fields.streetnumber).concat(" ", String(park.fields.streetname)),
     neighbourhoodurl: String(park.fields.neighbourhoodurl),
   }
+  parksData.push(local)
 })
 
 export const communityGardensData = communityGardens.filter((garden) => {
@@ -31,6 +35,7 @@ export const communityGardensData = communityGardens.filter((garden) => {
   return false
 }).map((garden) => {
     return {
+      id: nanoid(),
       name: garden.fields.name,
       plots: garden.fields.number_of_plots,
       coordinates: [garden.fields.geom.coordinates[1], garden.fields.geom.coordinates[0]],
@@ -53,6 +58,7 @@ export const publicArtData = publicArt.filter((art) => {
   return false
 }).map((art) => {
     return {
+      id: nanoid(),
       owner: art.fields.ownership,
       type: art.fields.type,
       coordinates: [art.fields.geom.coordinates[1],art.fields.geom.coordinates[0]],
@@ -72,48 +78,56 @@ export const publicArtData = publicArt.filter((art) => {
 
 export const testEvents = [
   {
+    id: nanoid(),
     name: 'looking for new runners',
     type: ['running'],
     info: 'come join some new to town runners!',
     coordinates: [49.249783, -123.15525],
   },
   {
+    id: nanoid(),
     name: 'day at the beach',
     type: ['spikeball'],
     info: 'looking for more spikeball players',
     coordinates: [49.285911, -123.120948],
   },
   {
+    id: nanoid(),
     name: 'street ballers',
     type: ['basketball'],
     info: 'lets do a pick-up game',
     coordinates: [49.249576, -123.082823],
   },
   {
+    id: nanoid(),
     name: 'advanced training',
     type: ['running'],
     info: 'advanced runners training for marathon',
     coordinates: [49.271852, -123.214423],
   },
   {
+    id: nanoid(),
     name: 'photography walk',
     type: ['hobby'],
     info: 'Im new to town, lets take a tour',
     coordinates: [49.215457,-123.142529],
   },
   {
+    id: nanoid(),
     name: 'volleyball tournament',
     type: ['volleyball'],
     info: 'looking for more volleyball players',
     coordinates: [49.239181, -123.131293],
   },
   {
+    id: nanoid(),
     name: 'neighborhood run',
     type: ['running'],
     info: 'trying yo get more into running',
     coordinates: [49.227998, -123.04413],
   },
   {
+    id: nanoid(),
     name: 'yoga day',
     type: ['yoga'],
     info: 'lets do yoga on this sunny day',

@@ -7,9 +7,18 @@ import { useSelector } from 'react-redux'
 export default function List(props) {
   const classes = useStyles()
   const [elRefs, setElRefs] = useState([])
-  const list = useSelector(state => state.list.listContents)
+  const list = useSelector(state => state.list.filteredList)
   const selectType = useSelector(state => state.list.type)
-  
+
+  const renderList = list?.map((location, i) => (
+    <Grid ref={elRefs[i]} item key={i} xs={12}>
+      <SelectionDetailsContainer location={location}
+                                 type={selectType}
+                                 selected={Number(props.childClicked) === i}
+                                 refProp={elRefs[i]}/>
+    </Grid>
+  ))
+
   useEffect(() => {
     const refs = Array(list?.length).fill().map((_, i) => elRefs[i] || createRef())
     setElRefs(refs)
@@ -24,14 +33,7 @@ export default function List(props) {
       ) : (
         <>
         <Grid container spacing={3} className={classes.list}>
-          {list?.map((location, i) => (
-            <Grid ref={elRefs[i]} item key={i} xs={12}>
-              <SelectionDetailsContainer location={location}
-                                         type={selectType}
-                                         selected={Number(props.childClicked) === i}
-                                         refProp={elRefs[i]}/>
-            </Grid>
-          ))}
+          {renderList}
         </Grid>
         </>
       )}

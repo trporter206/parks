@@ -13,7 +13,7 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(false)
 
   const dispatch = useDispatch()
-  const locations = useSelector(state => state.list.listContents)
+  const locations = useSelector(state => state.list.filteredList)
   const selectType = useSelector(state => state.list.type)
 
   useEffect(() => {

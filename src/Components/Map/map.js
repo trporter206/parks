@@ -1,18 +1,19 @@
-import React, {useRef, useState, useEffect} from 'react'
+import React, {useRef, useState} from 'react'
 import GoogleMapReact from 'google-map-react';
-import { Typography, useMediaQuery, Paper } from '@material-ui/core';
-import useSupercluster from "use-supercluster";
+import { Paper } from '@material-ui/core';
 import useStyles from './styles.js'
+import { useSelector } from 'react-redux';
 
 const Marker = ({ children }) => children;
 
 export default function Map(props) {
   const classes = useStyles()
   const mapRef = useRef()
-  const isDesktop = useMediaQuery('(min-width: 600px)')
   const center = {lat: 49.246292, lng: -123.116226}
   const [zoom, setZoom] = useState(10)
   const [bounds, setBounds] = useState({})
+
+  const selectLocations = useSelector(state => state.list.filteredList)
 
   return (
     <div style={{height: '85vh', width: '100%'}}>
@@ -38,7 +39,7 @@ export default function Map(props) {
         }}
         onChildClick={(child) => props.setChildClicked(child)}
         >
-        {props.locations.map((location,i) => (
+        {selectLocations.map((location,i) => (
           <Marker key={i} lat={location.coordinates[0]} lng={location.coordinates[1]}>
             <button className={classes.marker}>
               <Paper>
