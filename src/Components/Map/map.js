@@ -1,8 +1,8 @@
 import React, {useRef, useState} from 'react'
 import GoogleMapReact from 'google-map-react';
-import { Paper } from '@material-ui/core';
 import useStyles from './styles.js'
 import { useSelector } from 'react-redux';
+import MarkerContainer from '../../Containers/markerContainer.js';
 
 const Marker = ({ children }) => children;
 
@@ -42,9 +42,7 @@ export default function Map(props) {
         {selectLocations.map((location,i) => (
           <Marker key={i} lat={location.coordinates[0]} lng={location.coordinates[1]}>
             <button className={classes.marker}>
-              <Paper>
-                {location.name || location.type}
-              </Paper>
+              <MarkerContainer location={location} />
             </button>
           </Marker>
         ))}
