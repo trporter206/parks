@@ -50,8 +50,7 @@ export const listSlice = createSlice({
             newList.forEach((local) => state.filteredList.push(local))
         },
         eventAdded(state, action) {
-            state.data.push(action.payload)
-            console.log(state.data.length)
+            state.filteredList.push(action.payload)
           }
     }
   });

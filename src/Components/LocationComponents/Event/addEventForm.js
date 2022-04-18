@@ -11,15 +11,12 @@ export default function AddEventForm()  {
   const [name, setName] = useState('')
   const [type, setType] = useState('')
   const [info, setInfo] = useState('')
-  const [location, setLocation] = useState([])
+  const [location, setLocation] = useState([49.251913, -123.118087])
   const dispatch = useDispatch()
   const classes = useStyles()
 
   const onNameChanged = e => setName(e.target.value)
-  const onTypeChanged = e => {
-      setType(e.target.value)
-      dispatch(filterList([type, e.target.value]))
-  }
+  const onTypeChanged = e => setType(e.target.value)
   const onInfoChanged = e => setInfo(e.target.value)
   const onLocationChanged = e => {
       e.preventDefault()
@@ -37,12 +34,10 @@ export default function AddEventForm()  {
           coordinates: location
         })
       )
-      console.log(name)
       setName('')
       setType('')
       setInfo('')
-      setLocation([])
-      console.log(name)
+      setLocation([49.251913, -123.118087])
     }
   }
 
@@ -53,15 +48,15 @@ export default function AddEventForm()  {
             <TextField
             type="text"
             label="Name"
-            id="postName"
-            name="postName"
+            id="eventName"
+            name="eventName"
             value={name}
             onChange={onNameChanged}
             />
             <TextField
-            id="postInfo"
+            id="eventInfo"
             label="Info"
-            name="postInfo"
+            name="eventInfo"
             value={info}
             onChange={onInfoChanged}
             />
@@ -72,8 +67,8 @@ export default function AddEventForm()  {
             </Select>
             <Button
             type="button"
-            id="postLocation"
-            name="postLocation"
+            id="eventLocation"
+            name="eventLocation"
             value={location}
             onChange={onLocationChanged}
             >
