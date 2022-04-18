@@ -1,28 +1,39 @@
-import React from "react";
+import React, {useState} from "react";
 import {InputLabel, MenuItem, FormControl, Select } from '@material-ui/core'
 import useStyles from './styles.js'
 import { useDispatch, useSelector } from "react-redux";
-import filterList from '../List/listSlice'
+import {filterList} from '../List/listSlice'
 import AddEventForm from "../LocationComponents/Event/addEventForm.js";
+import { nanoid } from "@reduxjs/toolkit";
 
-const hoods = ['Arbutus-Ridge', 'Downtown', 'Dunbar-Southlands', 'Fairview', 'Grandview-Woodland', 'Hastings-Sunrise', 'Kensington-Cedar Cottage', 'Kerrisdale', 'Killarney', 'Kitsilano', 'Marpole', 'Mount Pleasant', 'Renfrew-Collingwood', 'Riley Park', 'Shaughnessy', 'Strathcona', 'Sunset', 'Victoria-Fraserview', 'West End', 'West Point Grey', 'South Cambie', 'Oakridge']
+const types = ['any','running', 'spikeball', 'volleyball', 'basketball', 'yoga', 'hobby', 'soccer']
 
 export default function EventsFilter(props) {
     const classes = useStyles()
     const filter = useSelector(state => state.list.listFilter)
     const dispatch = useDispatch()
+    const [showEventForm, setShowEventForm] = useState(false)
+
+    const AddEventClicked = () => {
+        setShowEventForm(!showEventForm)
+    }
 
     return (
         <div>
-            <AddEventForm />
-            <FormControl className={classes.formControl}>
-                <InputLabel>Neighborhood</InputLabel>
-                <Select value={filter['Neighbourhood']} onChange={(e) => dispatch(filterList({field: 'Neighbourhood', term: e.target.value}))}>
-                    {hoods.map((hood, i) => (
-                        <MenuItem key={i} value={hood}>{hood}</MenuItem>
-                    ))}
-                </Select>
-        </FormControl>
+            <button onClick={AddEventClicked}>Add Event</button>
+            <div>
+            { showEventForm ? 
+                <AddEventForm showEventForm={showEventForm} setShowEventForm={setShowEventForm}/> 
+                : 
+                <FormControl className={classes.formControl}>
+                    <Select value={filter['Type']} label='Type' onChange={(e) => dispatch(filterList(['type', e.target.value]))}>
+                        {types.map((type) => (
+                            <MenuItem key={nanoid()} value={type}>{type}</MenuItem>
+                        ))}
+                    </Select>
+                </FormControl>
+            }
+            </div>
         </div>
     )
 }

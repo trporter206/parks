@@ -7,7 +7,7 @@ import useStyles from './styles.js'
 
 const types = ['running', 'spikeball', 'volleyball', 'basketball', 'yoga', 'hobby', 'soccer']
 
-export default function AddEventForm()  {
+export default function AddEventForm(props)  {
   const [name, setName] = useState('')
   const [type, setType] = useState('')
   const [info, setInfo] = useState('')
@@ -39,6 +39,7 @@ export default function AddEventForm()  {
       setInfo('')
       setLocation([49.251913, -123.118087])
     }
+    props.setShowEventForm(!props.showEventForm)
   }
 
   return (

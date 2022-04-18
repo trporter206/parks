@@ -15,18 +15,22 @@ export const listSlice = createSlice({
             if (action.payload === 'parks') {
                 state.data = parksData
                 state.filteredList = []
+                state.listFilter = {}
                 state.data.forEach((local) => state.filteredList.push(local))
             } else if (action.payload === 'events') {
                 state.data = testEvents
                 state.filteredList = []
+                state.listFilter = {}
                 state.data.forEach((local) => state.filteredList.push(local))
             } else if (action.payload === 'basketball') {
                 state.data = basketballCourts
                 state.filteredList = []
+                state.listFilter = {}
                 state.data.forEach((local) => state.filteredList.push(local))
             } else if (action.payload === 'tennis') {
                 state.data = tennisCourts
                 state.filteredList = []
+                state.listFilter = {}
                 state.data.forEach((local) => state.filteredList.push(local))
             }
         },
@@ -50,15 +54,15 @@ export const listSlice = createSlice({
             newList.forEach((local) => state.filteredList.push(local))
         },
         eventAdded(state, action) {
-            state.filteredList.push(action.payload)
-          }
+            state.data.push(action.payload)
+        },
     }
   });
 
   export const {
     changeType,
     filterList,
-    eventAdded
+    eventAdded,
  } = listSlice.actions;
  
  export default listSlice.reducer;
