@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { parksData, communityGardensData, publicArtData, testEvents } from '../../Data/data';
+import { parksData, basketballCourts, testEvents } from '../../Data/data';
 
 export const listSlice = createSlice({
     name: "list",
@@ -20,12 +20,8 @@ export const listSlice = createSlice({
                 state.data = testEvents
                 state.filteredList = []
                 state.data.forEach((local) => state.filteredList.push(local))
-            } else if (action.payload === 'communityGardens') {
-                state.data = communityGardensData
-                state.filteredList = []
-                state.data.forEach((local) => state.filteredList.push(local))
-            } else if (action.payload === 'publicArt') {
-                state.data = publicArtData
+            } else if (action.payload === 'basketball') {
+                state.data = basketballCourts
                 state.filteredList = []
                 state.data.forEach((local) => state.filteredList.push(local))
             }

@@ -1,7 +1,7 @@
 import ParksFilter from '../Components/Filters/parksFilter'
 import EventsFilter from '../Components/Filters/eventsFilter'
 import GardensFilter from '../Components/Filters/gardensFilter'
-import ArtFilter from '../Components/Filters/artsFilter'
+import BasketballFilter from '../Components/Filters/basketballFilter'
 import { useSelector } from 'react-redux'
 
 export default function FilterContainer(props)  {
@@ -13,7 +13,7 @@ export default function FilterContainer(props)  {
     return <EventsFilter/>
   } else if (type === 'communityGardens') {
     return <GardensFilter/>
-  } else if (type === 'publicArt') {
-    return <ArtFilter/>
+  } else if (type === 'basketball') {
+    return <BasketballFilter/>
   }
 }

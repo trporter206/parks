@@ -33,8 +33,7 @@ export default function App() {
             <Select value={selectType} onChange={(e) => dispatch(changeType(e.target.value))}>
               <MenuItem value='parks'>Parks</MenuItem>
               <MenuItem value='events'>Events</MenuItem>
-              <MenuItem value='communityGardens'>Community Gardens</MenuItem>
-              <MenuItem value='publicArt'>Public Art</MenuItem>
+              <MenuItem value='basketball'>Basketball Courts</MenuItem>
             </Select>
           </FormControl>
           <FilterContainer />

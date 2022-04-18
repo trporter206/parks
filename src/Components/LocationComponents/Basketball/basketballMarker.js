@@ -1,10 +1,10 @@
 import React from 'react'
 import { Paper } from '@material-ui/core'
 
-export default function ArtsMarker(props) {
+export default function BasketballMarker(props) {
     return (
         <Paper>
-            {props.location.type}
+            {props.location.name}
         </Paper>
     )
 }
