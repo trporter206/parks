@@ -5,9 +5,9 @@ import {MenuItem, FormControl, Select } from '@material-ui/core'
 import {filterList} from '../List/listSlice'
 import { nanoid } from "@reduxjs/toolkit";
 
-const hoods = ['any', 'Downtown', 'Dunbar-Southlands', 'Fairview', 'Grandview-Woodland', 'Hastings-Sunrise', 'Kensington-Cedar Cottage', 'Killarney', 'Kitsilano', 'Marpole', 'Mount Pleasant', 'Renfrew-Collingwood', 'Riley-Little Mountain', 'South Cambie', 'Victoria-Fraserview', 'West Point Grey']
+const hoods = ['any', 'Downtown', 'Dunbar-Southlands', 'Fairview', 'Grandview-Woodland', 'Hastings-Sunrise', 'Kensington-Cedar Cottage', 'Kerrisdale', 'Killarney', 'Kitsilano', 'Marpole', 'Mount Pleasant', 'Renfrew-Collingwood', 'Riley-Little Mountain', 'South Cambie', 'Strathcona', 'Sunset', 'Victoria-Fraserview', 'West End', 'West Point Grey']
 
-export default function BasketballFilter(props) {
+export default function TennisFilter(props) {
     const classes = useStyles()
     const filter = useSelector(state => state.list.listFilter)
     const dispatch = useDispatch()

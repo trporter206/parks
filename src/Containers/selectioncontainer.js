@@ -2,7 +2,7 @@ import React from 'react'
 import EventDetails from '../Components/LocationComponents/Event/event'
 import ParkDetails from '../Components/LocationComponents/Park/park'
 import BasketballCourt from '../Components/LocationComponents/Basketball/basketball'
-import GardenDetails from '../Components/LocationComponents/Garden/garden'
+import TennisCourt from '../Components/LocationComponents/Tennis/tennis'
 import { useSelector } from 'react-redux'
 
 export default function SelectionDetailsContainer(props)  {
@@ -18,7 +18,7 @@ export default function SelectionDetailsContainer(props)  {
       return <EventDetails event={props.location} />
   } else if (type === 'basketball'){
     return <BasketballCourt court={props.location} />
-  } else {
-    return <GardenDetails garden={props.location} />
+  } else if (type === 'tennis'){
+    return <TennisCourt court={props.location} />
   }
 }
