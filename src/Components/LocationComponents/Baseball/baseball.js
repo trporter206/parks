@@ -23,10 +23,14 @@ export default function BaseballDiamond(props)  {
           <Typography variant='subtitle1'>Diamonds</Typography>
           <Typography gutterBottom variant='subtitle1'>{props.diamond.diamonds}</Typography>
         </Box>
-        {/* <Box display='flex' justifyContent='space-between'>
+        <Box display='flex' justifyContent='space-between'>
+          <Typography variant='subtitle1'>Neighbourhood</Typography>
+          <Typography gutterBottom variant='subtitle1'>{props.diamond.neighbourhood}</Typography>
+        </Box>
+        <Box display='flex' justifyContent='space-between'>
           <Typography variant='subtitle1'>Remarks</Typography>
           <Typography gutterBottom variant='subtitle1'>{props.diamond.remarks}</Typography>
-        </Box> */}
+        </Box>
       </CardContent>
     </Card>
   )

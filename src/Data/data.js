@@ -33,8 +33,10 @@ baseballDiamonds.forEach((diamond) => {
     id: nanoid(),
     name: diamond.name,
     address: diamond.address,
+    neighbourhood: diamond.neighbourhood,
     coordinates: diamond.coordinates,
-    diamonds: diamond.count
+    diamonds: diamond.count,
+    remarks: diamond.remarks
   }
   baseballData.push(local)
 })

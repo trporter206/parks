@@ -5,7 +5,22 @@ import {MenuItem, FormControl, Select } from '@material-ui/core'
 import {filterList} from '../List/listSlice'
 import { nanoid } from "@reduxjs/toolkit";
 
-const hoods = ['any', 'Downtown', 'Dunbar-Southlands', 'Fairview', 'Grandview-Woodland', 'Hastings-Sunrise', 'Kensington-Cedar Cottage', 'Killarney', 'Kitsilano', 'Marpole', 'Mount Pleasant', 'Renfrew-Collingwood', 'Riley-Little Mountain', 'South Cambie', 'Victoria-Fraserview', 'West Point Grey']
+const hoods = ['any', 
+                'Arbutus Ridge', 
+                'Downtown',
+                'Dunbar-Southlands', 
+                'Hastings-Sunrise', 
+                'Kensington-Cedar Cottage', 
+                'Killarney', 
+                'Kerrisdale', 
+                'Marpole', 
+                'Renfrew-Collingwood', 
+                'Riley-Little Mountain', 
+                'Shaughnessy',
+                'Strathcona',
+                'Sunset',
+                'Victoria-Fraserview', 
+                'West Point Grey']
 
 export default function BaseballFilter(props) {
     const classes = useStyles()
