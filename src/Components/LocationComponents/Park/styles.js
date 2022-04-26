@@ -11,6 +11,6 @@ export default makeStyles(() => ({
     display: 'flex', alignItems: 'center', justifyContent: 'space-between',
   },
   marker: {
-    backgroundColor: '#93e066', padding: '3px'
+    backgroundColor: ' #567d46', padding: '3px', color: 'white'
   }
 }));

@@ -10,4 +10,7 @@ export default makeStyles(() => ({
   spacing: {
     display: 'flex', alignItems: 'center', justifyContent: 'space-between',
   },
+  marker: {
+    backgroundColor: '#F88158', padding: '3px'
+  }
 }));
