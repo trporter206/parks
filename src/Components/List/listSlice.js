@@ -3,7 +3,9 @@ import {parksData,
         basketballCourts, 
         testEvents, 
         tennisCourts,
-        baseballData } from '../../Data/data';
+        baseballData,
+        ballHockeyData,
+        litFieldData } from '../../Data/data';
 
 export const listSlice = createSlice({
     name: "list",
@@ -38,6 +40,16 @@ export const listSlice = createSlice({
                 state.data.forEach((local) => state.filteredList.push(local))
             } else if (action.payload === 'baseball') {
                 state.data = baseballData
+                state.filteredList = []
+                state.listFilter = {}
+                state.data.forEach((local) => state.filteredList.push(local))
+            } else if (action.payload === 'ballHockey') {
+                state.data = ballHockeyData
+                state.filteredList = []
+                state.listFilter = {}
+                state.data.forEach((local) => state.filteredList.push(local))
+            } else if (action.payload === 'litField') {
+                state.data = litFieldData
                 state.filteredList = []
                 state.listFilter = {}
                 state.data.forEach((local) => state.filteredList.push(local))

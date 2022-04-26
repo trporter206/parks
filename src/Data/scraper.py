@@ -3,24 +3,37 @@ import requests
 from bs4 import BeautifulSoup
 import json
 
-URL = "https://covapp.vancouver.ca/parkfinder/FindFacilityType.aspx?InFT=1"
-page = requests.get(URL)
+def scraper(URL, fileName):
+    page = requests.get(URL)
+    soup = BeautifulSoup(page.content, "html.parser")
+    neighbourhoodSections = soup.find_all('div', class_="Panel")
+    results = []
+    for i in range(0, len(neighbourhoodSections)):
+        currentNeighbourhood = neighbourhoodSections[i]
+        neighbourhoodName = currentNeighbourhood.find('span', class_='Panel_title').text
+        locations = currentNeighbourhood.find_all('tr')
+        for x in range(0,len(locations)):
+            park = locations[x]
+            if park.find('span', class_="Bold") is None:
+                continue
+            name = park.find('span', class_="Bold").text
+            address = park.find('td', class_='Address').text
+            # count = park.find('td', class_='Count').text
+            remarks = park.find('td', class_='Remarks').text
 
-soup = BeautifulSoup(page.content, "html.parser")
+            location = {
+                'name': name,
+                'address': address,
+                # 'count': count,
+                'remarks': remarks,
+                'coordinates': [],
+                'neighbourhood': neighbourhoodName
+            }
+            results.append(location)
+    
+    with open(fileName, "w") as outfile:
+        json.dump(results, outfile)
+    
 
-names = soup.find_all('span', class_='Bold')
-addresses = soup.find_all('td', class_='Address')
-counts = soup.find_all('td', class_='Count')
-remarks = soup.find_all('span', class_='ListRecords')[1:]
-baseballParks = []
+scraper('https://covapp.vancouver.ca/parkfinder/FindFacilityType.aspx?InFT=44', "joggingTrails.json")
 
-for i in range(0,len(names)):
-    park = {
-        'name': names[i].text,
-        'address': addresses[i].text,
-        'count': counts[i].text,
-    }
-    baseballParks.append(park)
-
-with open("baseballDiamonds.json", "w") as outfile:
-    json.dump(baseballParks, outfile)

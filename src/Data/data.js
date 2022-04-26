@@ -1,6 +1,10 @@
 import parks from './parks.json'
 import baseballDiamonds from './baseballDiamonds.json'
+import ballHockey from './ballHockey.json'
+import litFields from './litFields.json'
 import { nanoid } from '@reduxjs/toolkit'
+
+// scraped files
 
 export const parksData = []
 parks.forEach((park) => {
@@ -41,6 +45,35 @@ baseballDiamonds.forEach((diamond) => {
   baseballData.push(local)
 })
 
+export const ballHockeyData = []
+ballHockey.forEach((bh) => {
+  const local = {
+    id: nanoid(),
+    name: bh.name,
+    address: bh.address,
+    neighbourhood: bh.neighbourhood,
+    coordinates: bh.coordinates,
+    count: bh.count,
+    remarks: bh.remarks
+  }
+  ballHockeyData.push(local)
+})
+
+export const litFieldData = []
+litFields.forEach((field) => {
+  const local = {
+    id: nanoid(),
+    name: field.name,
+    neighbourhood: field.neighbourhood,
+    count: field.count,
+    coordinates: field.coordinates,
+    address: field.address
+  }
+  litFieldData.push(local)
+})
+
+// --------------------------------------------------------------
+// manually made files
 export const testEvents = [
   {
     id: nanoid(),
