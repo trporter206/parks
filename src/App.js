@@ -35,6 +35,7 @@ export default function App() {
               <MenuItem value='events'>Events</MenuItem>
               <MenuItem value='basketball'>Basketball Courts</MenuItem>
               <MenuItem value='tennis'>Tennis Courts</MenuItem>
+              <MenuItem value='baseball'>Baseball Diamonds</MenuItem>
             </Select>
           </FormControl>
           <FilterContainer />

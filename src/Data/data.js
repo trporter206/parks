@@ -1,4 +1,5 @@
 import parks from './parks.json'
+import baseballDiamonds from './baseballDiamonds.json'
 import { nanoid } from '@reduxjs/toolkit'
 
 export const parksData = []
@@ -24,6 +25,18 @@ parks.forEach((park) => {
     neighbourhoodurl: String(park.fields.neighbourhoodurl),
   }
   parksData.push(local)
+})
+
+export const baseballData = []
+baseballDiamonds.forEach((diamond) => {
+  const local = {
+    id: nanoid(),
+    name: diamond.name,
+    address: diamond.address,
+    coordinates: diamond.coordinates,
+    diamonds: diamond.count
+  }
+  baseballData.push(local)
 })
 
 export const testEvents = [

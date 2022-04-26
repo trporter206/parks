@@ -2,6 +2,7 @@ import ParksFilter from '../Components/Filters/parksFilter'
 import EventsFilter from '../Components/Filters/eventsFilter'
 import TennisFilter from '../Components/Filters/tennisFilter'
 import BasketballFilter from '../Components/Filters/basketballFilter'
+import BaseballFilter from '../Components/Filters/baseballFilter'
 import { useSelector } from 'react-redux'
 
 export default function FilterContainer(props)  {
@@ -15,5 +16,7 @@ export default function FilterContainer(props)  {
     return <TennisFilter/>
   } else if (type === 'basketball') {
     return <BasketballFilter/>
+  } else if (type === 'baseball') {
+    return <BaseballFilter/>
   }
 }
