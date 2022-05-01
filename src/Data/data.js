@@ -14,10 +14,10 @@ parks.forEach((park) => {
     currentEvents: [],
     image: park.image,
     features: park.features,
-    hectare: park.size,
+    size: park.size,
     neighbourhood: park.neighbourhood,
     address: park.address,
-    washrooms: park.washrooms,
+    washrooms: (park.washrooms === 'Y' ? 'Yes' : 'No'),
     washroomInfo: park.washroomInfo,
     about: park.about,
     coordinates: park.coordinates

@@ -1,8 +1,9 @@
 import React, {useRef, useState} from 'react'
 import GoogleMapReact from 'google-map-react';
 import useStyles from './styles.js'
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import MarkerContainer from '../../Containers/markerContainer.js';
+import { changeSelected } from '../List/listSlice.js';
 
 const Marker = ({ children }) => children;
 
@@ -12,6 +13,7 @@ export default function Map(props) {
   const center = {lat: 49.246292, lng: -123.116226}
   const [zoom, setZoom] = useState(10)
   const [bounds, setBounds] = useState({})
+  const dispatch = useDispatch()
 
   const selectLocations = useSelector(state => state.list.filteredList)
 
@@ -37,7 +39,10 @@ export default function Map(props) {
             e.bounds.nw.lat
           ])
         }}
-        onChildClick={(child) => props.setChildClicked(child)}
+        onChildClick={(child) => {
+          console.log(child)
+          dispatch(changeSelected(child))
+        }} 
         >
         {selectLocations.map((location,i) => (
           <Marker key={i} lat={location.coordinates[0]} lng={location.coordinates[1]}>

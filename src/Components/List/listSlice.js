@@ -13,7 +13,8 @@ export const listSlice = createSlice({
         type: '',
         data: [],
         listFilter: {},
-        filteredList: []
+        filteredList: [],
+        selected: 0,
     },
     reducers: {
         changeType: (state, action) => {
@@ -77,6 +78,9 @@ export const listSlice = createSlice({
         eventAdded(state, action) {
             state.data.push(action.payload)
         },
+        changeSelected(state, action) {
+            state.selected = Number(action.payload)
+        }
     }
   });
 
@@ -84,6 +88,7 @@ export const listSlice = createSlice({
     changeType,
     filterList,
     eventAdded,
+    changeSelected,
  } = listSlice.actions;
  
  export default listSlice.reducer;
