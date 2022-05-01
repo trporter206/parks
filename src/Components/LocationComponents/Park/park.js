@@ -11,7 +11,7 @@ export default function ParkDetails(props)  {
   return (
     <Card elevation={6}>
       <CardMedia component='img'
-                   image='https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Concord_Pacific_Master_Plan_Area.jpg/1280px-Concord_Pacific_Master_Plan_Area.jpg' 
+                   src={props.park.image} 
                    alt='downtown vancouver'/>
       <CardContent>
         <Typography gutterBottom variant="h5">{props.park.name}</Typography>
@@ -25,26 +25,19 @@ export default function ParkDetails(props)  {
         </Box>
         <Box display='flex' justifyContent='space-between'>
           <Typography variant='subtitle1'>Size</Typography>
-          <Typography gutterBottom variant='subtitle1'>{props.park.hectare}</Typography>
+          <Typography gutterBottom variant='subtitle1'>{props.park.size}</Typography>
         </Box>
         <Box display='flex' justifyContent='space-between'>
           <Typography variant='subtitle1'>Washrooms</Typography>
           <Typography gutterBottom variant='subtitle1'>{props.park.washrooms}</Typography>
         </Box>
         <Box display='flex' justifyContent='space-between'>
-          <Typography variant='subtitle1'>Facilities</Typography>
-          <Typography gutterBottom variant='subtitle1'>{props.park.facilities}</Typography>
+          <Typography variant='subtitle1'>About</Typography>
+          <Typography gutterBottom variant='subtitle1'>{props.park.about}</Typography>
         </Box>
-        <Box display='flex' justifyContent='space-between'>
-          <Typography variant='subtitle1'>Advisories</Typography>
-          <Typography gutterBottom variant='subtitle1'>{props.park.advisories}</Typography>
-        </Box>
-        {/* {props.park.features.map((park, i) => (
-            <Chip label={park.features[i]} size='small' variant="outlined" />
-          ))} */}
-        <CardActions>
-          <LanguageIcon onClick={() => window.open(props.park.neighbourhoodurl, '_blank')}/>
-        </CardActions>
+        {props.park.features.map((park, i) => (
+            <Chip label={props.park.features[i]} size='small' variant="outlined" />
+          ))}
       </CardContent>
     </Card>
   )

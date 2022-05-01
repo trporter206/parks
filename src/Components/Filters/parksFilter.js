@@ -15,6 +15,7 @@ export default function ParksFilter() {
     return (
         <div>
             <FormControl className={classes.formControl}>
+            <InputLabel>Neighbourhood</InputLabel>
                 <Select value={filter['Neighbourhood']} label ='Neighbourhood' onChange={(e) => dispatch(filterList(['neighbourhood', e.target.value]))}>
                     {hoods.map((hood) => (
                         <MenuItem key={nanoid()} value={hood}>{hood}</MenuItem>
@@ -22,6 +23,7 @@ export default function ParksFilter() {
                 </Select>
             </FormControl>
             <FormControl className={classes.formControl}>
+                <InputLabel>Washrooms</InputLabel>
                 <Select value={filter['Washrooms']} label='Washrooms' onChange={(e) => dispatch(filterList(['washrooms', e.target.value]))}>
                     <MenuItem key={nanoid()} value='Y'>Yes</MenuItem>
                     <MenuItem key={nanoid()} value='N'>No</MenuItem>

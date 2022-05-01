@@ -1,4 +1,4 @@
-import parks from './parks.json'
+import parks from './parks2.json'
 import baseballDiamonds from './baseballDiamonds.json'
 import ballHockey from './ballHockey.json'
 import litFields from './litFields.json'
@@ -10,24 +10,20 @@ export const parksData = []
 parks.forEach((park) => {
   const local = {
     id: nanoid(),
-    name: park.fields.name,
+    name: park.name,
     currentEvents: [],
-    photos: '',
-    amenities: [],
-    ratings: [3,4,2,1,5,5],
-    hectare: park.fields.hectare,
-    neighbourhood: park.fields.neighbourhoodname,
-    coordinates: park.fields.googlemapdest,
-    facilities: park.fields.facilities,
-    crossStreets: [park.fields.ewstreet, park.fields.nsstreet],
-    street: park.fields.streetname,
-    streetNumber: park.fields.streetnumber,
-    washrooms: park.fields.washrooms,
-    advisories: park.fields.advisories,
-    features: park.fields.features,
-    address: String(park.fields.streetnumber).concat(" ", String(park.fields.streetname)),
-    neighbourhoodurl: String(park.fields.neighbourhoodurl),
+    image: park.image,
+    features: park.features,
+    hectare: park.size,
+    neighbourhood: park.neighbourhood,
+    address: park.address,
+    washrooms: park.washrooms,
+    washroomInfo: park.washroomInfo,
+    about: park.about,
+    coordinates: park.coordinates
   }
+  
+
   parksData.push(local)
 })
 
