@@ -9,6 +9,15 @@ export default function ParkDetails(props)  {
     props.refProp?.current?.scrollIntoView({behavior: 'smooth', block: 'start'})
   }
 
+  const toggleAbout = () => {
+    const washroomInfo = document.getElementById(props.park.id)
+    if (washroomInfo.style.display !== "none") {
+      washroomInfo.style.display = "none";
+    } else {
+      washroomInfo.style.display = "block";
+    }
+  }
+
   return (
     <Card elevation={6}>
       <CardMedia component='img'
@@ -50,14 +59,16 @@ export default function ParkDetails(props)  {
         ) : (
           <div></div>
         )}
-        <Box display='flex' justifyContent='space-between' style={{backgroundColor: 'lightgray', 
-                                                                   marginLeft: '-16px', 
-                                                                   marginRight: '-16px',
-                                                                   padding: '1rem'}}>
+        <Button onClick={toggleAbout}>Read More</Button>
+        <Box id={props.park.id} display='flex' justifyContent='space-between' style={{backgroundColor: 'lightgray', 
+                                                                                      marginLeft: '-16px', 
+                                                                                      marginRight: '-16px',
+                                                                                      padding: '1rem',
+                                                                                      display: 'none'}}>
           <Typography gutterBottom variant='subtitle1'>{props.park.about}</Typography>
         </Box>
         <Box style={{paddingTop: '1rem'}}>
-          {props.park.features.map((park, i) => (
+          {props.park.features?.map((_, i) => (
               <Chip label={props.park.features[i]} size='small' variant="outlined" />
             ))}
         </Box>

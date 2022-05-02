@@ -8,16 +8,13 @@ export default function List(props) {
   const classes = useStyles()
   const [elRefs, setElRefs] = useState([])
   const list = useSelector(state => state.list.filteredList)
-  const selectType = useSelector(state => state.list.type)
   const selected = useSelector(state => state.list.selected)
 
   const renderList = list?.map((location, i) => (
     <Grid ref={elRefs[i]} item key={i} xs={12}>
       <SelectionDetailsContainer location={location}
-                                 type={selectType}
                                  selected={selected === i}
-                                 refProp={elRefs[i]}
-                                 />
+                                 refProp={elRefs[i]}/>
     </Grid>
   ))
 

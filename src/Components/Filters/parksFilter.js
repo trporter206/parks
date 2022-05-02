@@ -25,8 +25,8 @@ export default function ParksFilter() {
             <FormControl className={classes.formControl}>
                 <InputLabel>Washrooms</InputLabel>
                 <Select value={filter['Washrooms']} label='Washrooms' onChange={(e) => dispatch(filterList(['washrooms', e.target.value]))}>
-                    <MenuItem key={nanoid()} value='Y'>Yes</MenuItem>
-                    <MenuItem key={nanoid()} value='N'>No</MenuItem>
+                    <MenuItem key={nanoid()} value='Yes'>Yes</MenuItem>
+                    <MenuItem key={nanoid()} value='No'>No</MenuItem>
                     <MenuItem key={nanoid()} value='any'>Any</MenuItem>
                 </Select>
             </FormControl>

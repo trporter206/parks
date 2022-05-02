@@ -9,11 +9,7 @@ import { changeType } from './Components/List/listSlice';
 
 export default function App() {
   const [coordinates, setCoordinates] = useState({})
-  const [childClicked, setChildClicked] = useState(null)
-  const [isLoading, setIsLoading] = useState(false)
-
   const dispatch = useDispatch()
-  const locations = useSelector(state => state.list.filteredList)
   const selectType = useSelector(state => state.list.type)
 
   useEffect(() => {
@@ -41,14 +37,11 @@ export default function App() {
             </Select>
           </FormControl>
           <FilterContainer />
-          <List childClicked={childClicked}
-                isLoading={isLoading}/>
+          <List />
         </Grid>
         <Grid item xs={12} md={8}>
           <Map setCoordinates={setCoordinates}
-               coordinates={coordinates}
-               locations={locations}
-               setChildClicked={setChildClicked}/>
+               coordinates={coordinates}/>
         </Grid>
       </Grid>
     </div>

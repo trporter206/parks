@@ -19,42 +19,32 @@ export const listSlice = createSlice({
     reducers: {
         changeType: (state, action) => {
             state.type = action.payload
-            if (action.payload === 'parks') {
-                state.data = parksData
-                state.filteredList = []
-                state.listFilter = {}
-                state.data.forEach((local) => state.filteredList.push(local))
-            } else if (action.payload === 'events') {
-                state.data = testEvents
-                state.filteredList = []
-                state.listFilter = {}
-                state.data.forEach((local) => state.filteredList.push(local))
-            } else if (action.payload === 'basketball') {
-                state.data = basketballCourts
-                state.filteredList = []
-                state.listFilter = {}
-                state.data.forEach((local) => state.filteredList.push(local))
-            } else if (action.payload === 'tennis') {
-                state.data = tennisCourts
-                state.filteredList = []
-                state.listFilter = {}
-                state.data.forEach((local) => state.filteredList.push(local))
-            } else if (action.payload === 'baseball') {
-                state.data = baseballData
-                state.filteredList = []
-                state.listFilter = {}
-                state.data.forEach((local) => state.filteredList.push(local))
-            } else if (action.payload === 'ballHockey') {
-                state.data = ballHockeyData
-                state.filteredList = []
-                state.listFilter = {}
-                state.data.forEach((local) => state.filteredList.push(local))
-            } else if (action.payload === 'litField') {
-                state.data = litFieldData
-                state.filteredList = []
-                state.listFilter = {}
-                state.data.forEach((local) => state.filteredList.push(local))
+            switch (action.payload) {
+                case 'parks':
+                    state.data = parksData
+                    break
+                case 'events':
+                    state.data = testEvents
+                    break
+                case 'basketball':
+                    state.data = basketballCourts
+                    break
+                case 'tennis':
+                    state.data = tennisCourts
+                    break
+                case 'baseball':
+                    state.data = baseballData
+                    break
+                case 'ballHockey':
+                    state.data = ballHockeyData
+                    break
+                case 'litField':
+                    state.data = litFieldData
+                    break
             }
+            state.filteredList = []
+                state.listFilter = {}
+                state.data.forEach((local) => state.filteredList.push(local))
         },
         filterList: (state, action) => {
             state.filteredList = []
