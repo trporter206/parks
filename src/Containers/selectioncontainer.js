@@ -10,7 +10,6 @@ import { useSelector } from 'react-redux'
 
 export default function SelectionDetailsContainer(props)  {
   const type = useSelector(state => state.list.type)
-  console.log(props.selected)
   
   if (props.selected) {
     props.refProp?.current?.scrollIntoView({behavior: 'smooth', block: 'start'})

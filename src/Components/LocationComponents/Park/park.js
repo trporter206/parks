@@ -8,21 +8,6 @@ export default function ParkDetails(props)  {
   if (props.selected) {
     props.refProp?.current?.scrollIntoView({behavior: 'smooth', block: 'start'})
   }
-  
-  const washroomInfo = () => {
-    if (props.park.washrooms === 'Y'){
-      return (
-        <Box display='flex' justifyContent='space-between' className={classes.washroomInfo}>
-          <Typography variant='subtitle1'>Washroom hours:</Typography>
-          <Typography gutterBottom variant='subtitle1'>{props.park.washroomInfo[0]}</Typography>
-          <Typography variant='subtitle1'>Summer hours:</Typography>
-          <Typography gutterBottom variant='subtitle1'>{props.park.washroomInfo[1]}</Typography>
-          <Typography variant='subtitle1'>Winter hours:</Typography>
-          <Typography gutterBottom variant='subtitle1'>{props.park.washroomInfo[2]}</Typography>
-        </Box>
-      )
-    }
-  }
 
   return (
     <Card elevation={6}>
@@ -47,13 +32,35 @@ export default function ParkDetails(props)  {
           <Typography variant='subtitle1'>Washrooms</Typography>
           <Typography gutterBottom variant='subtitle1'>{props.park.washrooms}</Typography>
         </Box>
-        {washroomInfo}
-        <Box display='flex' justifyContent='space-between'>
+        {props.park.washrooms === 'Yes' ? (
+          <Box display='flex' justifyContent='space-between'>
+            <div>
+              <Typography className={classes.washroomInfo} variant='subtitle1'>Location</Typography>
+              <Typography className={classes.washroomInfo} gutterBottom variant='subtitle1'>{props.park.washroomInfo[0]}</Typography>
+            </div>
+            <div>
+              <Typography className={classes.washroomInfo} variant='subtitle1'>Winter hours:</Typography>
+              <Typography className={classes.washroomInfo} gutterBottom variant='subtitle1'>{props.park.washroomInfo[1]}</Typography>
+            </div>
+            <div>
+              <Typography className={classes.washroomInfo} variant='subtitle1'>Summer hours:</Typography>
+              <Typography className={classes.washroomInfo} gutterBottom variant='subtitle1'>{props.park.washroomInfo[2]}</Typography>
+            </div>
+          </Box>
+        ) : (
+          <div></div>
+        )}
+        <Box display='flex' justifyContent='space-between' style={{backgroundColor: 'lightgray', 
+                                                                   marginLeft: '-16px', 
+                                                                   marginRight: '-16px',
+                                                                   padding: '1rem'}}>
           <Typography gutterBottom variant='subtitle1'>{props.park.about}</Typography>
         </Box>
-        {props.park.features.map((park, i) => (
-            <Chip label={props.park.features[i]} size='small' variant="outlined" />
-          ))}
+        <Box style={{paddingTop: '1rem'}}>
+          {props.park.features.map((park, i) => (
+              <Chip label={props.park.features[i]} size='small' variant="outlined" />
+            ))}
+        </Box>
       </CardContent>
     </Card>
   )

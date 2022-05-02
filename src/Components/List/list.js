@@ -16,7 +16,8 @@ export default function List(props) {
       <SelectionDetailsContainer location={location}
                                  type={selectType}
                                  selected={selected === i}
-                                 refProp={elRefs[i]}/>
+                                 refProp={elRefs[i]}
+                                 />
     </Grid>
   ))
 

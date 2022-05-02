@@ -12,5 +12,8 @@ export default makeStyles(() => ({
   },
   marker: {
     backgroundColor: ' #567d46', padding: '3px', color: 'white'
+  },
+  washroomInfo: {
+    fontSize: '.75rem'
   }
 }));
