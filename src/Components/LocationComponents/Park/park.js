@@ -69,7 +69,7 @@ export default function ParkDetails(props)  {
                    Create event here
         </NavLink>
         <Button onClick={toggleAbout}>Read More</Button>
-        <Box id={props.park.id} display='flex' justifyContent='space-between' style={{backgroundColor: 'lightgray', 
+        <Box id={nanoid()} display='flex' justifyContent='space-between' style={{backgroundColor: 'lightgray', 
                                                                                       marginLeft: '-16px', 
                                                                                       marginRight: '-16px',
                                                                                       padding: '1rem',
@@ -78,7 +78,7 @@ export default function ParkDetails(props)  {
         </Box>
         <Box style={{paddingTop: '1rem'}}>
           {props.park.features?.map((_, i) => (
-              <Chip label={props.park.features[i]} size='small' variant="outlined" />
+              <Chip label={props.park.features[i]} size='small' variant="outlined" id={nanoid()}/>
             ))}
         </Box>
       </CardContent>

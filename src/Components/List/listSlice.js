@@ -14,7 +14,7 @@ export const listSlice = createSlice({
         data: [],
         listFilter: {},
         filteredList: [],
-        selected: 0,
+        selected: {},
     },
     reducers: {
         changeType: (state, action) => {
@@ -69,7 +69,7 @@ export const listSlice = createSlice({
             state.data.push(action.payload)
         },
         changeSelected(state, action) {
-            state.selected = Number(action.payload)
+            state.selected = action.payload
         }
     }
   });

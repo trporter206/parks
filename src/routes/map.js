@@ -39,8 +39,7 @@ export default function Map(props) {
           ])
         }}
         onChildClick={(child) => {
-          console.log(child)
-          dispatch(changeSelected(child))
+          dispatch(changeSelected(selectLocations[child]))
         }} 
         >
         {selectLocations.map((location,i) => (

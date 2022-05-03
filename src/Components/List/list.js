@@ -13,7 +13,7 @@ export default function List(props) {
   const renderList = list?.map((location, i) => (
     <Grid ref={elRefs[i]} item key={i} xs={12}>
       <SelectionDetailsContainer location={location}
-                                 selected={selected === i}
+                                 selected={selected === location}
                                  refProp={elRefs[i]}/>
     </Grid>
   ))

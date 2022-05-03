@@ -34,6 +34,7 @@ baseballDiamonds.forEach((diamond) => {
     id: nanoid(),
     type: 'baseball',
     name: diamond.name,
+    currentEvents: [],
     address: diamond.address,
     neighbourhood: diamond.neighbourhood,
     coordinates: diamond.coordinates,
@@ -49,6 +50,7 @@ ballHockey.forEach((bh) => {
     id: nanoid(),
     type: 'ballHockey',
     name: bh.name,
+    currentEvents: [],
     address: bh.address,
     neighbourhood: bh.neighbourhood,
     coordinates: bh.coordinates,
@@ -64,6 +66,7 @@ litFields.forEach((field) => {
     id: nanoid(),
     type: 'litField',
     name: field.name,
+    currentEvents: [],
     neighbourhood: field.neighbourhood,
     count: field.count,
     coordinates: field.coordinates,
@@ -77,6 +80,9 @@ litFields.forEach((field) => {
 export const testEvents = [
   {
     id: nanoid(),
+    numPeople: 3,
+    dateTime: '',
+    location: '',
     type: 'event',
     name: 'looking for new runners',
     sport: 'running',
@@ -85,6 +91,9 @@ export const testEvents = [
   },
   {
     id: nanoid(),
+    numPeople: 10,
+    dateTime: '',
+    location: '',
     type: 'event',
     name: 'day at the beach',
     sport: 'spikeball',
@@ -93,6 +102,9 @@ export const testEvents = [
   },
   {
     id: nanoid(),
+    numPeople: 8,
+    dateTime: '',
+    location: '',
     type: 'event',
     name: 'street ballers',
     sport: 'basketball',
@@ -101,6 +113,9 @@ export const testEvents = [
   },
   {
     id: nanoid(),
+    numPeople: 5,
+    dateTime: '',
+    location: '',
     type: 'event',
     name: 'advanced training',
     sport: 'running',
@@ -109,6 +124,9 @@ export const testEvents = [
   },
   {
     id: nanoid(),
+    numPeople: 4,
+    dateTime: '',
+    location: '',
     type: 'event',
     name: 'photography walk',
     sport: 'hobby',
@@ -117,6 +135,9 @@ export const testEvents = [
   },
   {
     id: nanoid(),
+    numPeople: 8,
+    dateTime: '',
+    location: '',
     type: 'event',
     name: 'volleyball tournament',
     sport: 'volleyball',
@@ -125,6 +146,9 @@ export const testEvents = [
   },
   {
     id: nanoid(),
+    numPeople: 2,
+    dateTime: '',
+    location: '',
     type: 'event',
     name: 'neighborhood run',
     sport: 'running',
@@ -133,6 +157,9 @@ export const testEvents = [
   },
   {
     id: nanoid(),
+    numPeople: 6,
+    dateTime: '',
+    location: '',
     type: 'event',
     name: 'yoga day',
     sport: 'yoga',
@@ -145,6 +172,7 @@ export const basketballCourts = [
   {
     id: nanoid(),
     type: 'basketball',
+    currentEvents: [],
     name: "Andy Livingston Park",
     address: "89 Expo Boulevard",
     neighbourhood: "Downtown",
@@ -155,6 +183,7 @@ export const basketballCourts = [
   {
     id: nanoid(),
     type: 'basketball',
+    currentEvents: [],
     name: "Coopers Park",
     address: "1020 Marinaside Crescent",
     neighbourhood: "Downtown",
@@ -165,6 +194,7 @@ export const basketballCourts = [
   {
     id: nanoid(),
     type: 'basketball',
+    currentEvents: [],
     name: "David Lam Park",
     address: "1300 Pacific Boulevard",
     neighbourhood: "Downtown",
@@ -175,6 +205,7 @@ export const basketballCourts = [
   {
     id: nanoid(),
     type: 'basketball',
+    currentEvents: [],
     name: "Memorial West Park",
     address: "4701 Dunbar St",
     neighbourhood: "Dunbar-Southlands",
@@ -185,6 +216,7 @@ export const basketballCourts = [
   {
     id: nanoid(),
     type: 'basketball',
+    currentEvents: [],
     name: "Sutcliffe Park",
     address: "4701 Dunbar St",
     neighbourhood: "Fairview",
@@ -195,6 +227,7 @@ export const basketballCourts = [
   {
     id: nanoid(),
     type: 'basketball',
+    currentEvents: [],
     name: "Garden Park",
     address: "1851 Garden Drive",
     neighbourhood: "Grandview-Woodland",
@@ -205,6 +238,7 @@ export const basketballCourts = [
   {
     id: nanoid(),
     type: 'basketball',
+    currentEvents: [],
     name: "Pandora Park",
     address: "2325 Franklin Street",
     neighbourhood: "Grandview-Woodland",
@@ -215,6 +249,7 @@ export const basketballCourts = [
   {
     id: nanoid(),
     type: 'basketball',
+    currentEvents: [],
     name: "Hastings Community Park",
     address: "3000 E Pender Street",
     neighbourhood: "Hastings-Sunrise",
@@ -225,6 +260,7 @@ export const basketballCourts = [
   {
     id: nanoid(),
     type: 'basketball',
+    currentEvents: [],
     name: "Hastings Park",
     address: "2901 E Hastings",
     neighbourhood: "Hastings-Sunrise",
@@ -235,6 +271,7 @@ export const basketballCourts = [
   {
     id: nanoid(),
     type: 'basketball',
+    currentEvents: [],
     name: "Brewers Park",
     address: "4175 Victoria Drive",
     neighbourhood: "Kensington-Cedar Cottage",
@@ -245,6 +282,7 @@ export const basketballCourts = [
   {
     id: nanoid(),
     type: 'basketball',
+    currentEvents: [],
     name: "Cedar Cottage Park",
     address: "2650 Clark Drive",
     neighbourhood: "Kensington-Cedar Cottage",
@@ -255,6 +293,7 @@ export const basketballCourts = [
   {
     id: nanoid(),
     type: 'basketball',
+    currentEvents: [],
     name: "Clark Park",
     address: "1500 E 14th Avenue",
     neighbourhood: "Kensington-Cedar Cottage",
@@ -265,6 +304,7 @@ export const basketballCourts = [
   {
     id: nanoid(),
     type: 'basketball',
+    currentEvents: [],
     name: "Glen Park",
     address: "3999 Glen Drive",
     neighbourhood: "Kensington-Cedar Cottage",
@@ -275,6 +315,7 @@ export const basketballCourts = [
   {
     id: nanoid(),
     type: 'basketball',
+    currentEvents: [],
     name: "Grays Park",
     address: "4850 St. Catherines Street",
     neighbourhood: "Kensington-Cedar Cottage",
@@ -285,6 +326,7 @@ export const basketballCourts = [
   {
     id: nanoid(),
     type: 'basketball',
+    currentEvents: [],
     name: "John Hendry (Trout Lake) Park",
     address: "3300 Victoria Drive",
     neighbourhood: "Kensington-Cedar Cottage",
@@ -295,6 +337,7 @@ export const basketballCourts = [
   {
     id: nanoid(),
     type: 'basketball',
+    currentEvents: [],
     name: "Kingcrest Park",
     address: "4150 Knight Street",
     neighbourhood: "Kensington-Cedar Cottage",
@@ -305,6 +348,7 @@ export const basketballCourts = [
   {
     id: nanoid(),
     type: 'basketball',
+    currentEvents: [],
     name: "Riverfront Park",
     address: "2750 E Kent Ave S",
     neighbourhood: "Killarney",
@@ -315,6 +359,7 @@ export const basketballCourts = [
   {
     id: nanoid(),
     type: 'basketball',
+    currentEvents: [],
     name: "Kitsilano Beach Park",
     address: "1499 Arbutus Street",
     neighbourhood: "Kitsilano",
@@ -325,6 +370,7 @@ export const basketballCourts = [
   {
     id: nanoid(),
     type: 'basketball',
+    currentEvents: [],
     name: "Oak Park",
     address: "900 W 59th Avenue",
     neighbourhood: "Marpole",
@@ -335,6 +381,7 @@ export const basketballCourts = [
   {
     id: nanoid(),
     type: 'basketball',
+    currentEvents: [],
     name: "William Mackie Park",
     address: "1592 W 71st Avenue",
     neighbourhood: "Marpole",
@@ -345,6 +392,7 @@ export const basketballCourts = [
   {
     id: nanoid(),
     type: 'basketball',
+    currentEvents: [],
     name: "Mount Pleasant Park",
     address: "3161 Ontario Street",
     neighbourhood: "Mount Pleasant",
@@ -355,6 +403,7 @@ export const basketballCourts = [
   {
     id: nanoid(),
     type: 'basketball',
+    currentEvents: [],
     name: "Robson Park",
     address: "599 Kingsway",
     neighbourhood: "Mount Pleasant",
@@ -365,6 +414,7 @@ export const basketballCourts = [
   {
     id: nanoid(),
     type: 'basketball',
+    currentEvents: [],
     name: "Collingwood Park",
     address: "5275 McKinnon Street",
     neighbourhood: "Renfrew-Collingwood",
@@ -375,6 +425,7 @@ export const basketballCourts = [
   {
     id: nanoid(),
     type: 'basketball',
+    currentEvents: [],
     name: "Gaston Park",
     address: "3470 Crowley Drive",
     neighbourhood: "Renfrew-Collingwood",
@@ -385,6 +436,7 @@ export const basketballCourts = [
   {
     id: nanoid(),
     type: 'basketball',
+    currentEvents: [],
     name: "Melbourne Park",
     address: "3530 Vanness Avenue",
     neighbourhood: "Renfrew-Collingwood",
@@ -395,6 +447,7 @@ export const basketballCourts = [
   {
     id: nanoid(),
     type: 'basketball',
+    currentEvents: [],
     name: "Queen Elizabeth Park",
     address: "4600 Cambie Street",
     neighbourhood: "Riley-Little Mountain",
@@ -405,6 +458,7 @@ export const basketballCourts = [
   {
     id: nanoid(),
     type: 'basketball',
+    currentEvents: [],
     name: "Riley Park",
     address: "50 E 30th Avenue",
     neighbourhood: "Riley-Little Mountain",
@@ -415,6 +469,7 @@ export const basketballCourts = [
   {
     id: nanoid(),
     type: 'basketball',
+    currentEvents: [],
     name: "Douglas Park",
     address: "801 W 22nd Avenue",
     neighbourhood: "South Cambie",
@@ -425,6 +480,7 @@ export const basketballCourts = [
   {
     id: nanoid(),
     type: 'basketball',
+    currentEvents: [],
     name: "Strathcona Park",
     address: "857 Malkin Avenue",
     neighbourhood: "South Cambie",
@@ -435,6 +491,7 @@ export const basketballCourts = [
   {
     id: nanoid(),
     type: 'basketball',
+    currentEvents: [],
     name: "Humm Park",
     address: "7250 Humm Street",
     neighbourhood: "Victoria-Fraserview",
@@ -445,6 +502,7 @@ export const basketballCourts = [
   {
     id: nanoid(),
     type: 'basketball',
+    currentEvents: [],
     name: "West Point Grey Park",
     address: "2250 Trimble Street",
     neighbourhood: "West Point Grey",
@@ -458,6 +516,7 @@ export const tennisCourts = [
  {
    id: nanoid(),
    type: 'tennis',
+   currentEvents: [],
    name: "Andy Livingston Park",
    address: "89 Expo Boulevard",
    neighbourhood: "Downtown",
@@ -468,6 +527,7 @@ export const tennisCourts = [
  {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "David Lam Park",
   address: "1300 Pacific Boulevard",
   neighbourhood: "Downtown",
@@ -478,6 +538,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Memorial West Park",
   address: "4701 Dunbar Street",
   neighbourhood: "Dunbar-Southlands",
@@ -488,6 +549,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Charleson Park",
   address: "999 Charleson Street",
   neighbourhood: "Fairview",
@@ -498,6 +560,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Granville Loop Park",
   address: "1435 W 5th Avenue",
   neighbourhood: "Fairview",
@@ -508,6 +571,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Granville Park",
   address: "3001 Fir Street",
   neighbourhood: "Fairview",
@@ -518,6 +582,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Sutcliffe Park",
   address: "1318 Cartwright Street",
   neighbourhood: "Fairview",
@@ -528,6 +593,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Garden Park",
   address: "1851 Garden Drive",
   neighbourhood: "Grandview-Woodland",
@@ -538,6 +604,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "McSpadden Park",
   address: "2125 Victoria Drive",
   neighbourhood: "Grandview-Woodland",
@@ -548,6 +615,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Pandora Park",
   address: "2325 Franklin Street",
   neighbourhood: "Grandview-Woodland",
@@ -558,6 +626,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Burrard View Park",
   address: "650 North Penticton Street",
   neighbourhood: "Hastings-Sunrise",
@@ -568,6 +637,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Hastings Community Park",
   address: "3000 E Pender Street",
   neighbourhood: "Hastings-Sunrise",
@@ -578,6 +648,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Kaslo Park",
   address: "2851 E 7th Avenue",
   neighbourhood: "Hastings-Sunrise",
@@ -588,6 +659,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Rupert Park",
   address: "1600 Rupert Street",
   neighbourhood: "Hastings-Sunrise",
@@ -598,6 +670,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Brewers Park",
   address: "4175 Victoria Drive",
   neighbourhood: "Kensington-Cedar Cottage",
@@ -608,6 +681,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Clark Park",
   address: "4175 Victoria Drive",
   neighbourhood: "Kensington-Cedar Cottage",
@@ -618,6 +692,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Grays Park",
   address: "4175 Victoria Drive",
   neighbourhood: "Kensington-Cedar Cottage",
@@ -628,6 +703,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "John Hendry (Trout Lake) Park",
   address: "3300 Victoria Drive",
   neighbourhood: "Kensington-Cedar Cottage",
@@ -638,6 +714,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Elm Park",
   address: "3300 Victoria Drive",
   neighbourhood: "Kerrisdale",
@@ -648,6 +725,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Captain Cook Park",
   address: "3398 E 54th Avenue",
   neighbourhood: "Killarney",
@@ -658,6 +736,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Champlain Heights Park",
   address: "3351 Maquinna Drive",
   neighbourhood: "Killarney",
@@ -668,6 +747,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Riverfront Park",
   address: "2750 E Kent Ave S",
   neighbourhood: "Killarney",
@@ -678,6 +758,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Almond Park",
   address: "3600 W 12th Avenue",
   neighbourhood: "Kitsilano",
@@ -688,6 +769,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Kitsilano Beach Park",
   address: "1499 Arbutus Street",
   neighbourhood: "Kitsilano",
@@ -698,6 +780,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Mcbride Park",
   address: "3350 W 4th Avenue",
   neighbourhood: "Kitsilano",
@@ -708,6 +791,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Tatlow Park",
   address: "2845 W 3rd Avenue",
   neighbourhood: "Kitsilano",
@@ -718,6 +802,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Eburne Park",
   address: "950 W 71st Avenue",
   neighbourhood: "Marpole",
@@ -728,6 +813,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Oak Park",
   address: "900 W 59th Avenue",
   neighbourhood: "Marpole",
@@ -738,6 +824,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Guelph Park",
   address: "2390 Brunswick Street",
   neighbourhood: "Mount Pleasant",
@@ -748,6 +835,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Robson Park",
   address: "599 Kingsway",
   neighbourhood: "Mount Pleasant",
@@ -758,6 +846,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Melbourne Park",
   address: "3530 Vanness Avenue",
   neighbourhood: "Renfrew-Collingwood",
@@ -768,6 +857,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Slocan Park",
   address: "2750 E 29th Avenue",
   neighbourhood: "Renfrew-Collingwood",
@@ -778,6 +868,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Queen Elizabeth Park",
   address: "4600 Cambie Street",
   neighbourhood: "Riley-Little Mountain",
@@ -788,6 +879,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Heather Park",
   address: "702 W 18th Avenue",
   neighbourhood: "South Cambie",
@@ -798,6 +890,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Langara Golf Course",
   address: "6706 Alberta Street",
   neighbourhood: "South Cambie",
@@ -808,6 +901,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Strathcona Park",
   address: "857 Malkin Avenue",
   neighbourhood: "Strathcona",
@@ -818,6 +912,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "MacDonald Park",
   address: "300 E 44th Avenue",
   neighbourhood: "Sunset",
@@ -828,6 +923,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Memorial South Park",
   address: "5955 Ross Street",
   neighbourhood: "Sunset",
@@ -838,6 +934,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Moberly Park",
   address: "7646 Prince Albert Street",
   neighbourhood: "Sunset",
@@ -848,6 +945,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Humm Park",
   address: "7250 Humm Street",
   neighbourhood: "Victoria-Fraserview",
@@ -858,6 +956,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Stanley Park",
   address: "8901 Stanley Park Drive",
   neighbourhood: "West End",
@@ -868,6 +967,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "Jericho Beach Park",
   address: "3941 Point Grey Road",
   neighbourhood: "West Point Grey",
@@ -878,6 +978,7 @@ export const tennisCourts = [
 {
   id: nanoid(),
   type: 'tennis',
+  currentEvents: [],
   name: "West Point Grey Park",
   address: "2250 Trimble Street",
   neighbourhood: "West Point Grey",

@@ -13,4 +13,7 @@ export default makeStyles((theme) => ({
   formControl: {
     width: '100%', minWidth: 120, marginBottom: '30px', backgroundColor: 'teal', margin: '1'
   },
+  marker: {
+    backgroundColor: 'teal', padding: '3px', color: 'white'
+  },
 }));
