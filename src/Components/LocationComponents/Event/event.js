@@ -13,7 +13,7 @@ export default function EventDetails(props)  {
         <Typography gutterBottom variant="h5">{props.event.name}</Typography>
         <Box display='flex' justifyContent='space-between'>
           <Typography variant='subtitle1'>Type</Typography>
-          <Typography gutterBottom variant='subtitle1'>{props.event.type}</Typography>
+          <Typography gutterBottom variant='subtitle1'>{props.event.sport}</Typography>
         </Box>
         <Box display='flex' justifyContent='space-between'>
           <Typography variant='subtitle1'>Info</Typography>

@@ -1,9 +1,9 @@
 import React, {useRef, useState} from 'react'
 import GoogleMapReact from 'google-map-react';
-import useStyles from './styles.js'
+import useStyles from '../Components/Map/styles.js'
 import { useSelector, useDispatch } from 'react-redux';
-import MarkerContainer from '../../Containers/markerContainer.js';
-import { changeSelected } from '../List/listSlice.js';
+import MarkerContainer from '../Containers/markerContainer.js';
+import { changeSelected } from '../Components/List/listSlice'
 
 const Marker = ({ children }) => children;
 
@@ -22,7 +22,7 @@ export default function Map(props) {
       <GoogleMapReact
         bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY }}
         defaultCenter={center}
-        center={props.coordinates}
+        center={center}
         defaultZoom={12}
         margin={[50,50,50,50]}
         yesIWantToUseGoogleMapApiInternals
@@ -31,7 +31,6 @@ export default function Map(props) {
         }}
         onChange={(e) => {
           setZoom(e.zoom)
-          props.setCoordinates({lat: e.center.lat, lng: e.center.lng})
           setBounds([
             e.bounds.nw.lng,
             e.bounds.se.lat,

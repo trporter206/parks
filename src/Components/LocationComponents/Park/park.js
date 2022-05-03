@@ -1,7 +1,9 @@
 import React from 'react'
 import {Box, Typography, Button, Card, CardMedia, CardContent, CardActions, Chip} from '@material-ui/core'
 import LanguageIcon from '@material-ui/icons/Language';
+import {NavLink} from "react-router-dom";
 import useStyles from './styles.js'
+import { nanoid } from '@reduxjs/toolkit';
 
 export default function ParkDetails(props)  {
   const classes = useStyles()
@@ -59,6 +61,13 @@ export default function ParkDetails(props)  {
         ) : (
           <div></div>
         )}
+        {/* list events here */}
+        <NavLink to={`/addEventForm/${props.park.id}`} 
+                 key={nanoid()} 
+                 className={({ isActive }) => isActive ? "green" : "blue"}
+                 >
+                   Create event here
+        </NavLink>
         <Button onClick={toggleAbout}>Read More</Button>
         <Box id={props.park.id} display='flex' justifyContent='space-between' style={{backgroundColor: 'lightgray', 
                                                                                       marginLeft: '-16px', 

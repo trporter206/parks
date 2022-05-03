@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import Header from './Components/Header/header'
 import List from './Components/List/list'
-import Map from './Components/Map/map'
 import FilterContainer from './Containers/FilterContainer';
+import {Outlet, Link} from 'react-router-dom'
 import {CssBaseline, Grid, InputLabel, MenuItem, FormControl, Select} from '@material-ui/core'
 import { useSelector, useDispatch } from 'react-redux';
 import { changeType } from './Components/List/listSlice';
@@ -23,7 +23,7 @@ export default function App() {
       <CssBaseline />
       <Header setCoordinates={setCoordinates}/>
       <Grid container style={{width: '100%'}}>
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} md={4} id='List'>
           <FormControl>
             <InputLabel>Type</InputLabel>
             <Select value={selectType} onChange={(e) => dispatch(changeType(e.target.value))}>
@@ -39,9 +39,8 @@ export default function App() {
           <FilterContainer />
           <List />
         </Grid>
-        <Grid item xs={12} md={8}>
-          <Map setCoordinates={setCoordinates}
-               coordinates={coordinates}/>
+        <Grid item xs={12} md={8} id='Data'>
+          <Outlet />
         </Grid>
       </Grid>
     </div>

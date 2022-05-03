@@ -1,13 +1,17 @@
 import React, { useState } from 'react'
 import {InputLabel, Select, MenuItem, FormControl, Button, TextField } from '@material-ui/core'
-import { useDispatch } from "react-redux";
-import { filterList, eventAdded } from '../../List/listSlice';
+import { useDispatch, useSelector } from "react-redux";
+import {Outlet, Link, useParams} from 'react-router-dom'
+import { filterList, eventAdded } from '../Components/List/listSlice';
 import { nanoid } from '@reduxjs/toolkit'
-import useStyles from './styles.js'
+import useStyles from '../Components/Filters/styles'
+import { parksData } from '../Data/data';
 
 const types = ['running', 'spikeball', 'volleyball', 'basketball', 'yoga', 'hobby', 'soccer']
 
 export default function AddEventForm(props)  {
+  let params = useParams()
+  const park = useSelector(state => state.list.filteredList.find(park => park.id === params.id))
   const [name, setName] = useState('')
   const [type, setType] = useState('')
   const [info, setInfo] = useState('')
@@ -44,7 +48,7 @@ export default function AddEventForm(props)  {
 
   return (
     <div>
-      <h2>Add a New Event</h2>
+      <h2>Create event at {park.name}</h2>
         <FormControl className={classes.formControl}>
             <TextField
             type="text"
@@ -76,7 +80,9 @@ export default function AddEventForm(props)  {
             Set Location
             </Button>
             <Button type="button" onClick={onSaveEventClicked}>Save Event</Button>
+            <Link to='/'>Cancel</Link>
         </FormControl>
+        <Outlet/>
     </div>
   )
 }
